@@ -31,7 +31,6 @@ const app = new Vue({
                 this.datos = json;
             } catch (error) {
                 console.log(`Error: ${error}`);
-                
             }
         }
     },
