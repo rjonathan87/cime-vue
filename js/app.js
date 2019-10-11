@@ -24,22 +24,18 @@ const app = new Vue({
             //     .catch(err => {
             //         console.log(err);
             //     })
-            const url = `https://localhost:5001/api/CodigoPostal`
-            const res = await fetch(url)
-            const json = await res.json()
-            if(res.status !== 200)
-                throw Error('Algo malo ha sucedido!!!')
-            else
+            try {
+                const url = `https://localhost:5001/api/CodigoPostal`
+                const res = await fetch(url)
+                const json = await res.json()
                 this.datos = json;
+            } catch (error) {
+                console.log(`Error: ${error}`);
+                
+            }
         }
     },
     created: async function () {
-        try {
-            await this.getData();
-        } catch (error) {
-            console.log(`Error: ${error}`);
-            
-        }
-        
+        this.getData();
     }
 })
