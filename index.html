@@ -64,13 +64,76 @@
             <!-- {{datos}} -->
             <ul class="list-group">
               <li class="list-group-item" v-for="(dato, index) in datos">
-                {{ dato.dasenta }}
+                <button
+                  class="btn btn-default btn-block"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  @click="getDetails(index)"
+                >
+                  {{ dato.dasenta }}
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <th>Código Postal:</th>
+                <th><div id="Dcodigo"></div></th>
+              </tr>
+              <tr>
+                <th>Colonia:</th>
+                <th><div id="Dasenta"></div></th>
+              </tr>
+              <tr>
+                <th>Municipio:</th>
+                <th><div id="Dmnpio"></div></th>
+              </tr>
+              <tr>
+                <th>Entidad:</th>
+                <th><div id="Destado"></div></th>
+              </tr>
+              <tr>
+                <th>Ciudad:</th>
+                <th><div id="Dciudad"></div></th>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Save changes
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal -->
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

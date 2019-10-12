@@ -5,25 +5,6 @@ const app = new Vue({
     },
     methods: {
         async getData() {
-            // var that = this;
-            // axios.get('https://localhost:5001/api/CodigoPostal')
-            //     .then(function (response) {
-            //         // console.log(response.data);
-            //         that.datos = response.data;
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //     });
-            // await fetch('https://localhost:5001/api/CodigoPostal')
-            //     .then(res => {
-            //         return res.json()
-            //     })
-            //     .then(data => {
-            //         this.datos = data;
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //     })
             try {
                 const url = `https://localhost:5001/api/CodigoPostal`
                 const res = await fetch(url)
@@ -32,6 +13,17 @@ const app = new Vue({
             } catch (error) {
                 console.log(`Error: ${error}`);
             }
+        },
+        getDetails(id) {
+            // console.log(this.datos[id].dcodigo);
+
+
+            document.getElementById('Dcodigo').innerHTML = this.datos[id].dcodigo;
+            document.getElementById('Dasenta').innerHTML = this.datos[id].dasenta;
+            document.getElementById('Dmnpio').innerHTML = this.datos[id].dmnpio;
+            document.getElementById('Destado').innerHTML = this.datos[id].destado;
+            document.getElementById('Dciudad').innerHTML = this.datos[id].dciudad;
+
         }
     },
     created: async function () {
